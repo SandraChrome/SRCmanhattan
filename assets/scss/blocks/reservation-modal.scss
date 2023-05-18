@@ -1,0 +1,128 @@
+.reservation {
+    visibility: hidden;
+    opacity: 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba($btnBorderColor, 0.4);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition-property: visibility, opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__inner {
+        max-width: 50rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-color: $bodyBg;
+        padding: 5rem;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    &__title {
+        margin-bottom: 5rem;
+    }
+
+    &__close {
+        width: 5rem;
+        height: 5rem;
+        background-color: $btnBorderColor;
+        border-radius: 5px;
+
+        position: absolute;
+        top: -6rem;
+        right: 0;
+
+        &::after,
+        &::before {
+            content: "";
+            width: 4rem;
+            height: 0.3rem;
+            background-color: $textColor;
+            position: absolute;
+            top: 47%;
+            left: 10%;
+            z-index: 205;
+        }
+        &::after {
+            transform: rotate(45deg);
+        }
+        &::before {
+            transform: rotate(-45deg);
+        }
+        transition: all 0.1s linear 0s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem;
+    }
+
+    &__form-input {
+        padding: 2rem 4rem;
+        font-family: "gothampro";
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 150%;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        border: 1px solid $btnBorderColor;
+        border-radius: 5px;
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            color: $textColor;
+            cursor: pointer;
+        }
+    }
+
+}
+@media (max-width: 515px) {
+    .reservation {
+        &__inner {
+            padding: 3rem;
+        }
+        &__title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        &__form-input {
+            padding: 2rem 2rem;
+        }
+    }
+}
+@media (max-width: 381px) {
+    .reservation {
+        &__inner {
+            padding: 2rem;
+        }
+        &__title {
+            font-size: 2.5rem;
+            
+        }
+        &__form-input {
+            font-size: 1.4rem;
+        }
+    }
+}

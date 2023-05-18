@@ -1,0 +1,70 @@
+@import "reset";
+@import "fonts";
+@import "vars";
+@import "libs";
+@import "global";
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+}
+
+body {
+    font-family: "Stolzl";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 150%;
+    color: $textColor;
+    background-color: $bodyBg;
+    &.scrollLock {
+        overflow: hidden;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: lighten($bodyBg, 10%);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $btnBorderColor;
+}
+
+@import "blocks/preloader";
+@import "blocks/header";
+@import "blocks/first-block";
+@import "blocks/kitchen";
+@import "blocks/information";
+@import "blocks/equipment";
+@import "blocks/poster";
+@import "blocks/coorp";
+@import "blocks/gallery";
+@import "blocks/reservation-modal";
+@import "blocks/footer";
+

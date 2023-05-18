@@ -1,0 +1,36 @@
+.container {
+    max-width: 1326px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.section-title {
+    font-family: "gothampro";
+    font-size: 4rem;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $textColor;
+}
+.global-btn {
+    padding: 1.5rem 3rem;
+    border: 2px solid $btnBorderColor;
+    border-radius: 5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.1s linear 0s;
+
+    &:hover {
+        background-color: $btnBorderColor;
+    }
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

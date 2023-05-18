@@ -1,0 +1,145 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 150;
+
+    
+
+    padding: 3.5rem 0;
+
+    transition-property: padding-top, padding-bottom, background-color, backdrop-filter;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+
+    &.scrolled {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background-color: rgba($btnBorderColor, 0.9);
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__burger-btn {
+        display: none;
+        width: 40px;
+        height: 30px;
+        position: relative;
+        z-index: 500;
+        span,
+        &::before,
+        &::after {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: $textColor;
+            left: 0;
+            z-index: 15;
+            transition: all 0.1s linear 0s;
+        }
+        &::before {
+            content: "";
+            top: 0;
+        }
+        &::after {
+            content: "";
+            bottom: 0;
+        }
+        span {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &.active {
+            span {
+                width: 0;
+            }
+            &::before {
+                transform: rotate(-45deg);
+                top: 50%;
+            }
+            &::after {
+                transform: rotate(45deg);
+                top: 50%;
+            }
+        }
+    }
+
+    &__logo {
+        z-index: 500;
+    }
+
+    &__logo-img {
+        max-width: 15.8rem;
+        width: 100%;
+    }
+
+    &__block {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 5%;
+    }
+
+    &__menu {
+    }
+
+    &__menu-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 3rem;
+    }
+
+    &__menu-item {
+    }
+
+    &__menu-link {
+        transition: all 0.1s linear 0s;
+        &:hover {
+            color: $btnBorderColor;
+        }
+    }
+
+    &__btn {
+    }
+}
+
+@media (max-width: 769px) {
+    .header {
+        &__burger-btn {
+            display: block;
+        }
+
+        &__block {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: black, $alpha: 0.7);
+            backdrop-filter: blur(8px);
+            transition: left 0.2s linear 0s;
+
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 6rem;
+
+            &.active {
+                left: 0;
+            }
+        }
+
+        &__menu-list {
+            flex-direction: column;
+            text-align: center;
+            row-gap: 5rem;
+            font-size: 4rem;
+        }
+    }
+}

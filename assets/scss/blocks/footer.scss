@@ -1,0 +1,97 @@
+.footer {
+
+    &__title {
+        margin-bottom: 8rem;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+
+        margin-bottom: 10rem;
+    }
+
+    &__info {
+        max-width: 41.6rem;
+
+        padding: 5rem;
+        background: $blockBg;
+        border: 2px solid $btnBorderColor;
+        border-radius: 5px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        dd {
+            margin-top: -4.5rem;
+        }
+
+
+    }
+
+    &__item-title {
+        font-family: "gothampro";
+        font-weight: 700;
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $textColor;
+
+        // margin-bottom: 2rem;
+    }
+
+    &__item-phone {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__map {
+        width: 100%;
+        iframe {
+            width: 100%;
+        }
+    }
+
+    &__down-block {
+        padding: 3rem 0;
+        border-top: 1px solid $textColor;
+        opacity: 0.5;
+        display: flex;
+        column-gap: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+}
+
+@media (max-width: 661px) {
+    .footer {
+        &__body {
+            flex-direction: column;
+            row-gap: 3rem;
+        }
+        &__info {
+            max-width: none;
+
+            dd {
+                margin-top: 0.5rem;
+                &:not(:last-child) {
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+        
+    }
+}
+
+@media (max-width: 426px) {
+    .footer {
+        &__info {
+            padding: 2rem;
+            max-width: none;
+        }
+    }
+}

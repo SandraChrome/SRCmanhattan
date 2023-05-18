@@ -1,0 +1,132 @@
+.poster {
+    margin-top: 13.6rem;
+    margin-bottom: 15rem;
+    &__title {
+        margin-bottom: 8rem;
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.4rem;
+    }
+
+    &__item {
+        max-width: 30.6rem;
+        width: 100%;
+        min-height: 35rem;
+        height: auto;
+        overflow: hidden;
+        
+        position: relative;
+
+        &:hover {
+            .poster__item-info {
+                visibility: visible;
+                opacity: 1;
+            }
+            img {
+                transform: scale(1.5);
+            }
+        }
+    }
+
+    &__item-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+
+        transition: all 3s linear 0s;
+    }
+
+    &__item-info {
+        visibility: hidden;
+        opacity: 0;
+
+        transition: all 0.1s linear 0s;
+
+        padding: 3.2rem 3.5rem;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 15;
+
+        background-color: rgba($color: #000000, $alpha: 0.8);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &__item-date {
+        cursor: default;
+        max-width: 17.4rem;
+        padding: 0.8rem 1.5rem;
+        font-family: "gothampro";
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $textColor;
+
+        background: $btnBorderColor;
+        border-radius: 5px;
+
+        text-align: center;
+        span {
+            &:first-child {
+                &::after {
+                    content: " |";
+                }
+            }
+        }
+    }
+
+    &__item-title {
+        font-family: "gothampro";
+        font-weight: 700;
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $textColor;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__item-btn {
+        padding: 1rem 2rem 0.7rem;
+    }
+}
+
+@media (max-width: 1025px) {
+    .poster {
+        &__body {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media (max-width: 769px) {
+    .poster {
+        &__body {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &__item {
+            max-width: none;
+        }
+    }
+}
+
+@media (max-width: 531px) {
+    .poster {
+        &__body {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
